@@ -32,5 +32,7 @@ namespace SICPA.DataAccess.Data
 
         public DbSet<Employee> Employees { get; set; }
 
+        public DbSet<DepartmentEmployee> DepartmentsEmployees { get; set; }
+
     }
 }

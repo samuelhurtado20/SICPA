@@ -7,6 +7,7 @@ namespace SICPA.Models.Entities
     public class Department : Base
     {
         [Key]
+        [Column("id")]
         public int Id { get; set; }
 
         [Required]

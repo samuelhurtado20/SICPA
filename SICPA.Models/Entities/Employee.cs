@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SICPA.Models.Entities
@@ -10,6 +7,7 @@ namespace SICPA.Models.Entities
     public class Employee : Base
     {
         [Key]
+        [Column("id")]
         public int Id { get; set; }
 
         [Required]
