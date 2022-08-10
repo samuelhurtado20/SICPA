@@ -12,5 +12,6 @@ namespace SICPA.Models.Entities
         public string ModifiedBy { get; set; }
         [Column("modified_date")]
         public DateTime ModifiedDate { get; set; }
+        public bool Status { get; set; }
     }
 }

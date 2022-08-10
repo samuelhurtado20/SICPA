@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SICPA.Models.Entities
 {
+    [Table("departments")]
     public class Department : Base
     {
         [Key]
         public int Id { get; set; }
-        public bool Status { get; set; }
 
         [Required]
         public string Description { get; set; }
