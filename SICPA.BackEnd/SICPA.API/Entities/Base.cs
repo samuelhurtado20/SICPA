@@ -7,11 +7,11 @@ namespace SICPA.API.Entities
         [Column("created_by")]
         public string CreatedBy { get; set; }
         [Column("created_date")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         [Column("modified_by")]
         public string ModifiedBy { get; set; }
         [Column("modified_date")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; } = DateTime.UtcNow;
         public bool Status { get; set; }
     }
 }
