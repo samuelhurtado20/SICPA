@@ -27,5 +27,7 @@ namespace SICPA.API.Entities
 
         [ForeignKey("surname")]
         public string Surname { get; set; }
+
+        public virtual ICollection<DepartmentEmployee> DepartmentEmployees { get; set; }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using SICPA.API.Entities;
-using System.ComponentModel.DataAnnotations;
 
-namespace SICPA.API
+namespace SICPA.API.Dtos
 {
-    public class CreateEnterpriseDto
+    public class UpdateEnterpriseDto
     {
+        public int Id { get; set; }
         public string Address { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
@@ -13,9 +13,10 @@ namespace SICPA.API
         {
             Enterprise entity = new()
             {
-                Address = this.Address,
-                Name = this.Name,
-                Phone = this.Phone,
+                Id = Id,
+                Address = Address,
+                Name = Name,
+                Phone = Phone,
                 Status = true,
                 ModifiedDate = DateTime.UtcNow,
                 ModifiedBy = "",

@@ -23,5 +23,7 @@ namespace SICPA.API.Entities
 
         [ForeignKey("EnterpriseId")]
         public Enterprise Enterprise { get; set; }
+
+        public virtual ICollection<DepartmentEmployee> DepartmentEmployees { get; set; }
     }
 }

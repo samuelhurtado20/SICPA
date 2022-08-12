@@ -1,1 +1,40 @@
-<p>enterprise works!</p>
+<div class="row">
+    <div class="col-8">
+        <h3>List of Enterprises</h3>
+    </div>
+    <div class="col-4">
+        <button [routerLink]="['/enterprise/create']" class="btn btn-outline-success" type="submit">Create New</button>
+    </div>
+</div>
+<div class="row">
+    <table datatable class="row-border hover table table-striped table-bordered">  <!-- dataTable no-footer -->
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngIf="enterprises?.length != 0">
+          <tr *ngFor="let enter of enterprises">
+            <td>{{ enter.id }}</td>
+            <td>{{ enter.name }}</td>
+            <td>{{ enter.address }}</td>
+            <td>{{ enter.phone }}</td>
+            <td width="15%">
+                <a [routerLink]="['/enterprise/edit/', enter.id]" style="color: green;"><i class="fas fa-edit p-1" aria-hidden="true"></i></a>
+                <a (click)="delete(enter.id)" style="color: red;"><i class="fas fa-trash p-1" aria-hidden="true"></i></a>
+                <!-- <a (click)="delete(enter.id)">mark fail</a> -->
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="enterprises?.length == 0">
+          <tr>
+            <td colspan="3" class="no-data-available">No data!</td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>

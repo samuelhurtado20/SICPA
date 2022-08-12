@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-8">
+        <h3>List of Department</h3>
+    </div>
+    <div class="col-4">
+        <button [routerLink]="['/department/create']" class="btn btn-outline-success" type="submit">Create New</button>
+    </div>
+</div>
+<div class="row">
+    <table datatable class="row-border hover table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Phone</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngIf="departments?.length != 0">
+            <tr *ngFor="let depa of departments">
+                <td>{{ depa.id }}</td>
+                <td>{{ depa.name }}</td>
+                <td>{{ depa.description }}</td>
+                <td>{{ depa.phone }}</td>
+                <td width="15%">
+                    <a [routerLink]="['/department/edit/', depa.id]" style="color: green;"><i class="fas fa-edit p-1"
+                            aria-hidden="true"></i></a>
+                    <a (click)="delete(depa.id)" style="color: red;"><i class="fas fa-trash p-1"
+                            aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="departments?.length == 0">
+            <tr>
+                <td colspan="3" class="no-data-available">No data!</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

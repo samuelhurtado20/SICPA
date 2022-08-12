@@ -7,17 +7,17 @@ namespace SICPA.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EnterpriseController : Controller
+    public class DepartmentController : Controller
     {
         private readonly IUnitOfWork _uow;
 
-        public EnterpriseController(IUnitOfWork uow)
+        public DepartmentController(IUnitOfWork uow)
         {
             _uow = uow;
         }
 
         /// <summary>
-        /// Get all enterprises
+        /// Get all Departments
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Successful operation</response>
@@ -28,7 +28,7 @@ namespace SICPA.API.Controllers
         {
             try
             {
-                var result = _uow.Enterprise.Get();
+                var result = _uow.Department.Get();
                 if (!result.Any())
                 {
                     return NotFound();
@@ -43,7 +43,7 @@ namespace SICPA.API.Controllers
         }
 
         /// <summary>
-        /// Get a single enterprise by id
+        /// Get a single Department by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -56,7 +56,7 @@ namespace SICPA.API.Controllers
         {
             try
             {
-                var result = _uow.Enterprise.Get(id);
+                var result = _uow.Department.Get(id);
                 if (result == null)
                 {
                     return NotFound();
@@ -71,18 +71,18 @@ namespace SICPA.API.Controllers
         }
 
         /// <summary>
-        /// Save new enterprise
+        /// Save new Department
         /// </summary>
         /// <returns></returns>
         /// <response code="201">Successful operation</response>
         /// <response code="500">Internal server error</response>
         [HttpPost]
-        public IActionResult Post(CreateEnterpriseDto data)
+        public IActionResult Post(CreateDepartmentDto data)
         {
             try
             {
-                Enterprise entity = data.ToEntity();
-                _uow.Enterprise.Create(entity);
+                Department entity = data.ToEntity();
+                _uow.Department.Create(entity);
                 _uow.Save();
                 return StatusCode(StatusCodes.Status201Created, data);
             }
@@ -94,21 +94,22 @@ namespace SICPA.API.Controllers
         }
 
         /// <summary>
-        /// Update enterprise
+        /// Update Department
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Successful operation</response>
         /// <response code="500">Internal server error</response>
         [HttpPut]
-        public IActionResult Put(UpdateEnterpriseDto data)
+        public IActionResult Put(UpdateDepartmentDto data)
         {
             try
             {
-                Enterprise entity = _uow.Enterprise.Get(data.Id);
+                Department entity = _uow.Department.Get(data.Id);
                 entity.Phone = data.Phone;
-                entity.Address = data.Address;
+                entity.Description = data.Description;
                 entity.Name = data.Name;
-                _uow.Enterprise.Update(entity);
+                entity.EnterpriseId = data.EnterpriseId;
+                _uow.Department.Update(entity);
                 _uow.Save();
                 return Ok(data);
             }
@@ -120,7 +121,7 @@ namespace SICPA.API.Controllers
         }
 
         /// <summary>
-        /// Delete enterprise by id
+        /// Delete Department by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -132,7 +133,7 @@ namespace SICPA.API.Controllers
         {
             try
             {
-                _uow.Enterprise.Delete(id);
+                _uow.Department.Delete(id);
                 _uow.Save();
                 return Ok();
             }

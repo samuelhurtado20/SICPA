@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-4">
-        <h3>Create a new Enterprise</h3>
+        <h3>Edit Enterprise</h3>
     </div>
 </div>
 <div class="row">
-    <form [formGroup]="form" (ngSubmit)="save()">
+    <form [formGroup]="form" (ngSubmit)="update()">
         <div class="col-4">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -19,7 +19,7 @@
                 <input type="number" class="form-control" id="phone" placeholder="Phone" formControlName="phone">
             </div>
             <div class="mb-3">
-                <button [disabled]="form.invalid" type="submit" class="btn btn-success"><i class="fas fa-save"></i> Create</button>
+                <button [disabled]="form.invalid" type="submit" class="btn btn-success"><i class="fas fa-save"></i> Update</button>
                 <button [routerLink]="['/enterprise']" class="btn btn-outline-success m-2" type="submit"><i class="fas fa-arrow-left"></i> Back</button>
             </div>
         </div>

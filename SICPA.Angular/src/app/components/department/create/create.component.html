@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-4">
-        <h3>Create a new Enterprise</h3>
+        <h3>Create a new Department</h3>
     </div>
 </div>
 <div class="row">
@@ -11,16 +11,26 @@
                 <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
             </div>
             <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Address" formControlName="address">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" placeholder="Description" formControlName="description">
             </div>
+
+            <div class="mb-3">
+                <label for="enterprises">Enterprise</label>
+                <select class="form-control" formControlName="enterpriseId" id="enterpriseId">
+                  <option *ngFor="let enter of enterprises; let i = index" [value]="enterprises[i].id">
+                    {{enterprises[i].name}}
+                  </option>
+                </select>
+            </div>
+
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone</label>
                 <input type="number" class="form-control" id="phone" placeholder="Phone" formControlName="phone">
             </div>
             <div class="mb-3">
                 <button [disabled]="form.invalid" type="submit" class="btn btn-success"><i class="fas fa-save"></i> Create</button>
-                <button [routerLink]="['/enterprise']" class="btn btn-outline-success m-2" type="submit"><i class="fas fa-arrow-left"></i> Back</button>
+                <button [routerLink]="['/department']" class="btn btn-outline-success m-2" type="submit"><i class="fas fa-arrow-left"></i> Back</button>
             </div>
         </div>
     </form>
