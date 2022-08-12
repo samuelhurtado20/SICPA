@@ -1,1 +1,42 @@
-<p>create works!</p>
+<div class="row">
+    <div class="col-4">
+        <h3>Create a new Employee</h3>
+    </div>
+</div>
+<div class="row">
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="col-4">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+            </div>
+
+            <div class="mb-3">
+                <label for="position" class="form-label">Position</label>
+                <input type="text" class="form-control" id="position" placeholder="position" formControlName="position">
+            </div>
+
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" class="form-control" id="age" placeholder="age" formControlName="age">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="email" formControlName="email">
+            </div>
+
+            <div class="mb-3">
+                <label for="surname" class="form-label">Surname</label>
+                <input type="text" class="form-control" id="surname" placeholder="surname" formControlName="surname">
+            </div>
+
+            <div class="mb-3">
+                <button [disabled]="form.invalid" type="submit" class="btn btn-success"><i class="fas fa-save"></i> Create</button>
+                <button [routerLink]="['/employee']" class="btn btn-outline-success m-2" type="submit"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+
+        </div>
+    </form>
+</div>

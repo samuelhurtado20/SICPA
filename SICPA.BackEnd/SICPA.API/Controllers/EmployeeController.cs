@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SICPA.API.Dtos;
 using SICPA.API.Entities;
 using SICPA.API.Interfaces;
 
 namespace SICPA.API.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class EmployeeController : Controller
     {
         private readonly IUnitOfWork _uow;

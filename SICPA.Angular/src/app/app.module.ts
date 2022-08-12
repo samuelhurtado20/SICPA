@@ -12,6 +12,9 @@ import { DepartmentComponent } from './components/department/department.componen
 import { CreateComponent as CreateDepartment } from './components/department/create/create.component';
 import { EditComponent as EditDepartment } from './components/department/edit/edit.component';
 
+import { CreateComponent as CreateEmployee } from './components/employee/create/create.component';
+import { EditComponent as EditEmployee } from './components/employee/edit/edit.component';
+
 import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { DataTablesModule } from 'angular-datatables';
@@ -28,7 +31,9 @@ import { EmployeeComponent } from './components/employee/employee.component';
     DepartmentComponent,
     CreateDepartment,
     EditDepartment,
-    EmployeeComponent
+    EmployeeComponent,
+    CreateEmployee,
+    EditEmployee
   ],
   imports: [
     BrowserModule,
